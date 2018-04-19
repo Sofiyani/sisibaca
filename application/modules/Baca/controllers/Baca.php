@@ -74,5 +74,26 @@ class Baca extends MX_Controller
 	
 	}
 
+	function doadetail($id,$nomor)
+	{
+		$data['nav']='Baca/baca_nav_v';
+		$data['sidebar']='Baca/baca_sidebar_v';
+		$data['content']='Baca/baca_detaildoa_v';
+		$datauser=array(
+						'id_doa'=>$id
+					);
+		$this->session->set_userdata($datauser);
+		
+		
+
+		$data['data']=$this->Baca_m->get_detail_doaitem($id,$nomor);
+		$data['menu']="Kategori";
+		$data['menu2']="Nama Do'a";
+		$data['menu3']="Do'a";
+		$this->template->call_admin_template($data);
+
+
+	}
+
 
 }

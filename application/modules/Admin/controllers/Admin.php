@@ -255,6 +255,27 @@ class Admin extends MX_Controller
 		$this->cek_login();	
 	}
 
+	function doadetail($id,$nomor)
+	{
+		$data['nav']='Admin/admin_nav_v';
+		$data['sidebar']='Admin/admin_sidebar_v';
+		$data['content']='Admin/admin_detaildoa_v';
+		$datauser=array(
+						'id_doa'=>$id
+					);
+		$this->session->set_userdata($datauser);
+		
+		
+
+		$data['data']=$this->Admin_m->get_detail_doaitem($id,$nomor);
+		$data['menu']="Kategori";
+		$data['menu2']="Nama Do'a";
+		$data['menu3']="Do'a";
+		$this->template->call_admin_template($data);
+
+
+	}
+
 	function tambah_doa()
 	{
 		$data['data']=$this->create_namadoa();
@@ -267,6 +288,7 @@ class Admin extends MX_Controller
 		$this->template->call_admin_template($data);
 		$this->cek_login();	
 	}
+
 
 	function add_doa()
 	{

@@ -15,7 +15,7 @@
 								<div id="not" style="width: 100%">
 							     <?php echo $this->session->flashdata('alert'); ?>	
 							    </div>
-								<table class="table table-striped table-bordered datatable">
+								<table class="table table-striped  table-bordered datatable">
 									<thead>
 										<th style="width: 5%;">No</th>
 										<th>Do'a</th>
@@ -27,13 +27,14 @@
 										foreach ($data as $row) 
 										{
 										?>
-											<tr>
+										<tr>
 
 												<td><?php echo $row['nomor']; ?></td>
 												<td style="text-align: right;font-family: 'Amiri';font-size: 14pt;"><?php echo $row['doa']; ?></td>
 												<td style="text-align: center; vertical-align: middle;"><?php echo $row['kali']; ?> X</td>
 												<td style="text-align: center; vertical-align: middle;">
 
+												<a  href="<?php echo base_url('Admin/doadetail/').$row['id_item'].'/'.$row['nomor']; ?>" class="btn btn-outline-info fa fa-search"></a>
 												<a  href="<?php echo base_url('Admin/edit_doa/').$row['id_doa']; ?>" class="btn btn-outline-warning fa fa-pencil"></a>
 												<button type="button" data-toggle="modal" data-target="#<?php echo $row['id_doa']; ?>" class="btn btn-outline-danger fa fa-trash-o"></button>
 												<audio controls>
@@ -41,9 +42,8 @@
 												</audio>
 												</td>
 												</tr>
-												
-
-											<div class="modal fade" id="<?php echo $row['id_doa']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+											
+							<div class="modal fade" id="<?php echo $row['id_doa']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
 	<div class="modal-dialog modal-danger" role="document">
 		<div class="modal-content">
 		 	<div class="modal-header">

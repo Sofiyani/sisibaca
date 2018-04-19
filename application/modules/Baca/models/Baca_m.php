@@ -30,4 +30,11 @@ class Baca_m extends CI_Model
 		return $query->result_array();
 	}
 
+	function get_detail_doaitem($id,$nomor)
+	{
+		$this->db->order_by('nomor', 'asc');
+		$query=$this->db->get_where('doa', array('id_item'=>$id ,'nomor'=>$nomor));
+		return $query->result_array();
+	}
+
 }

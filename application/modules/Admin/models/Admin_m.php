@@ -32,14 +32,15 @@ class Admin_m extends CI_Model
 	function get_all_doa($id)
 	{
 		$this->db->order_by('nomor', 'asc');
-		$query=$this->db->get_where('doa', array('id_item'=>$id));
+		$query=$this->db->get_where('doa', array('id_item'=>$id ));
 		return $query->result_array();
 	}
 
-	function get_detail_doa($id)
+	function get_detail_doaitem($id,$nomor)
 	{
-		$query=$this->db->get_where('doa', array('id_item'=>$id));
-		return $query->row_array();
+		$this->db->order_by('nomor', 'asc');
+		$query=$this->db->get_where('doa', array('id_item'=>$id ,'nomor'=>$nomor));
+		return $query->result_array();
 	}
 
 	function get_update_doa($id)
@@ -162,6 +163,14 @@ class Admin_m extends CI_Model
 		$this->db->where('id_item', $id);
 		return $this->db->update('item', $data);
 	}
+
+		function detail_lihat_doa($id)
+	{
+		$this->db->order_by('nomor', 'asc');
+		$query=$this->db->get_where('doa', array('id_doa'=>$id));
+		return $query->result_array();
+	}
+
 
 	function update_doa($id)
 

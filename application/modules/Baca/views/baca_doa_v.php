@@ -9,7 +9,7 @@
 							<strong>Do'a</strong>
 							<small>Data</small>
 							<button class="btn btn-outline-secondary" style="position: absolute; right: 12px;" onclick="window.history.go(-1); return false;">Kembali</button>	
-	</div>
+						</div>
 						<div class="card-body">
 							<div class="row">
 								<div id="not" style="width: 100%">
@@ -32,7 +32,9 @@
 												
 												<td style="text-align: right;font-family: 'Amiri';font-size: 17pt;"><?php echo $row['doa']; ?></td>
 												<td style="text-align: center; vertical-align: middle;"><?php echo $row['kali']; ?> X</td>
-												<td style="text-align: center; vertical-align: middle;">
+												<td style="text-align: center; vertical-align: middle;"
+												>
+												<a  href="<?php echo base_url('Admin/doadetail/').$row['id_item'].'/'.$row['nomor']; ?>" class="btn btn-outline-info fa fa-search"></a>
 												<audio controls>
 												<source src="<?php echo base_url('file_audio/').$row['file_audio']; ?>" type="audio/mpeg">
 												</audio>
